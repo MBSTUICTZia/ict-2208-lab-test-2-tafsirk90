@@ -2,37 +2,49 @@ package shapes;
 
 import java.util.Scanner;
 
-public class ShapeMain {
-    public static void main(String[] args) {
-
+public class ShapeMain{
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        // take ONLY one input line
-        String[] data = sc.nextLine().split(" ");
+        int n = sc.nextInt();
+        Shape[] shapes = new Shape[n];
 
-        String type = data[0].toUpperCase();
-        String color = data[1];
-        boolean filled = Boolean.parseBoolean(data[2]);
+        for(int i=0; i<n; i++){
+            String type = sc.next();
+            String color = sc.next();
+            boolean filled = sc.nextBoolean();
 
-        Shape shape = null;
-
-        if (type.equals("RECTANGLE")) {
-
-            double w = Double.parseDouble(data[3]);
-            double l = Double.parseDouble(data[4]);
-
-            shape = new Rectangle(color, filled, w, l);
-
-        }
-        else if (type.equals("CIRCLE")) {
-
-            double r = Double.parseDouble(data[3]);
-
-            shape = new Circle(color, filled, r);
+            if(type.equals("RECTANGLE")){
+                double width = sc.nextDouble();
+                double length = sc.nextDouble();
+                shapes[i] = new Rectangle(color,filled, width, length);
+            }
+            else if(type.equals("CIRCLE")){
+                double radius = sc.nextDouble();
+                shapes[i] = new Circle(color, filled, radius);
+            }
         }
 
-        System.out.println(shape);
+        for(Shape s:shapes){
+            System.out.println(s);
+            System.out.println();
+        }
 
-        sc.close();
+        System.out.println("--- Downcast Check ---");
+        for(Shape s: shapes){
+            if(s instanceof Rectangle){
+                Rectangle r = (Rectangle) s;
+                System.out.println("Rectangle width=" + r.getWidth() + " length=" + r.getLength());
+            }else if (s instanceof Circle){
+                Circle c = (Circle) s;
+                System.out.println("Circle radius=" + c.getRadius());
+            }
+        }
+
+        //Task 6 - Abstract Class Written answeer
+        //what error does the compiler give you write:
+        // Shape s = new Shape("Red", true);
+
+        //Answer: Shape is abstract; cannot be instantiated
     }
 }
