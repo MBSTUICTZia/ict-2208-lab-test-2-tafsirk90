@@ -1,36 +1,32 @@
 package shapes;
 
-public class Rectangle extends Shape {
+public abstract class Shape{
+    private String color;
+    private boolean filled;
 
-    private double width;
-    private double length;
-
-    public Rectangle(String color, boolean filled, double width, double length) {
-        super(color, filled);
-        this.width  = width;
-        this.length = length;
+    public Shape(String color, boolean filled){
+        this.color = color;
+        this.filled = filled;
     }
 
-    @Override
-    public double getArea() {
-        return width * length;
+    public abstract double getArea();
+    public abstract double getPerimeter();
+
+    @Override 
+    public String toString(){
+        return "Color : " + color + "\n" + "Filled: " + (filled? "Yes" : "No");
     }
 
-    @Override
-    public double getPerimeter() {
-        return 2 * (width + length);
+    public String getColor(){
+        return color;
     }
-
-    @Override
-    public String toString() {
-        return "[ Rectangle ]\n" +
-               super.toString()  + "\n" +
-               "Width : " + width  + "\n" +
-               "Length: " + length + "\n" +
-               String.format("Area      : %.2f", getArea())      + "\n" +
-               String.format("Perimeter : %.2f", getPerimeter());
+    public boolean isFilled(){
+        return filled;
     }
-
-    public double getWidth()  { return width;  }
-    public double getLength() { return length; }
+    public void setcolor(String color){
+        this.color = color;
+    }
+    public void setFilled (boolean filled){
+        this.filled = filled;
+    }
 }
