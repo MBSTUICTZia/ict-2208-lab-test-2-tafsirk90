@@ -1,4 +1,4 @@
-package Shapes;
+package shapes;
 
 public class Circle extends Shape{
     protected double radius;
@@ -22,6 +22,8 @@ public class Circle extends Shape{
                 super.toString()  +
                 "Radius : " + radius + "\n" +
                 String.format("Area         : %.2f", getArea())      + "\n" +
-                String.format("Circumference: %.2f", getPerimeter());
+                String.format("Circumference: %.2f", getPerimeter()) + "\n" +
+                String.format("Area: %.2f", getArea()) + '\n' +
+                String.format("Perimeter: %.2f", getPerimeter());
     }
 }

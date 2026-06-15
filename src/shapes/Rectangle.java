@@ -1,4 +1,4 @@
-package Shapes;
+package shapes;
 
 public class Rectangle extends Shape{
     protected double width;
@@ -23,11 +23,13 @@ public class Rectangle extends Shape{
 
     @Override
     public String toString() {
-        return "[ Rectangle ]\n" +
+        return "[ shapes.rectangle ]\n" +
                 super.toString() +
                 "Width : " +  width + "\n" +
                 "Height : " + length + "\n" +
                 String.format("Area      : %.2f", getArea())      + "\n" +
-                String.format("Perimeter : %.2f", getPerimeter());
+                String.format("Perimeter : %.2f", getPerimeter()) + "\n" +
+                String.format("Area: %.2f", getArea()) + '\n' +
+                String.format("Perimeter: %.2f", getPerimeter());
     }
 }

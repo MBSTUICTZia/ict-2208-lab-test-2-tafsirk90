@@ -1,6 +1,6 @@
-package Shapes;
+package shapes;
 
-abstract class Shape {
+public abstract class Shape {
     protected String color;
     protected boolean filled;
     protected String fill;
