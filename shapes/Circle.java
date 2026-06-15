@@ -1,29 +1,32 @@
 package shapes;
 
-public class Circle extends Shape{
-    protected double radius;
-    Circle(String color, boolean filled, double radius) {
+public class Circle extends Shape {
+
+    private double radius;
+
+    public Circle(String color, boolean filled, double radius) {
         super(color, filled);
         this.radius = radius;
     }
-    public double getRadius() {
-        return radius;
-    }
+
+    @Override
     public double getArea() {
-        return radius * radius *  3.1416;
+        return Math.PI * radius * radius;
     }
+
+    @Override
     public double getPerimeter() {
-        return 3.1416 * 2 * radius;
+        return 2 * Math.PI * radius;
     }
 
     @Override
     public String toString() {
         return "[ Circle ]\n" +
-                super.toString()  +
-                "Radius : " + radius + "\n" +
-                String.format("Area         : %.2f", getArea())      + "\n" +
-                String.format("Circumference: %.2f", getPerimeter()) + "\n" +
-                String.format("Area: %.2f", getArea()) + '\n' +
-                String.format("Perimeter: %.2f", getPerimeter());
+               super.toString() + "\n" +
+               "Radius: " + radius + "\n" +
+               String.format("Area         : %.2f", getArea())      + "\n" +
+               String.format("Circumference: %.2f", getPerimeter());
     }
+
+    public double getRadius() { return radius; }
 }
