@@ -42,7 +42,7 @@ public class ShapeMain{
         }
 
         //Task 6 - Abstract Class Written answeer
-        //what error does the compiler give you write: 
+        //what error does the compiler give you write:
         // Shape s = new Shape("Red", true);
 
         //Answer: Shape is abstract; cannot be instantiated
